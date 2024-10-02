@@ -8,3 +8,4 @@ Pillow
 scikit-image
 scikit-learn
 scipy
+matplotlib
