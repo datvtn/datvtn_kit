@@ -31,6 +31,23 @@ def set_random_seed(s: int):
         pass
 
 
+def format_size(size: int, suffix: str = 'B') -> str:
+    """Convert a file size in bytes to a human-readable string format.
+
+    Args:
+        size (int): File size in bytes.
+        suffix (str): Suffix for the size unit. Default is 'B' (bytes).
+
+    Returns:
+        str: Formatted human-readable file size.
+    """
+    for unit in ['', 'K', 'M', 'G', 'T', 'P', 'E', 'Z']:
+        if abs(size) < 1024.0:
+            return f'{size:.1f} {unit}{suffix}'
+        size /= 1024.0
+    return f'{size:.1f} Y{suffix}'
+
+
 def copy_files(
     fpaths: Union[str, List[str]],
     dst_dir: str,
